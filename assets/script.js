@@ -10,13 +10,14 @@ function writePassword() {
 
 };
 
-function generatePassword() {
-    let upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    let lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    let numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
-    let special = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '/', ':', ';', "'", '"', '<', '>', ',', '.', '?'];
+let upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+let lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+let numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+let special = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '/', ':', ';', "'", '"', '<', '>', ',', '.', '?'];
+var passChar = [];
 
-    var passChar = [];
+function generatePassword() {
+    
 
 		let pwdLength = prompt("Enter the number of characters you would like your password to be.", "Password must be between 8-128 characters.");
 		
@@ -36,31 +37,37 @@ function generatePassword() {
     
     function validatePass() {
       if (yesUpper === true) {
-        passChar.concat(upper);
-      };
+        console.log("Yes uppercase");
+        console.log(passChar);
+        passChar = passChar.concat(upper);
+      }
+  
       if (yesLower === true) {
-        passChar.concat(lower);
-      };
+        console.log("Yes lowercase");
+        console.log(passChar);
+        passChar = passChar.concat(lower);
+      }
       if (yesNumbers === true) {
-        passChar.concat(numbers);
-      };
+        console.log("yes Numbers");
+        passChar = passChar.concat(numbers);
+      }
       if (yesSpecial === true) {
-        passChar.concat(special);
-      };
+        console.log("yes special");
+        passChar = passChar.concat(special);
+      }
+      console.log(passChar);
       return passChar;
     };
+    // 
     
     validatePass();
-    for (var i = 0; i < pwdLength.length; i++) {
-      do {
-        var newPass = [];
-        newPass.push(passChar[Math.floor(Math.random()*passChar.length)]);
-      }
-      while (i < pwdLength.length) {
 
-      };
+    var newPass = [];
+
+    for (var i = 0; i < pwdLength; i++) {
+      newPass.push(passChar[Math.floor(Math.random()*passChar.length)]);
     };
-    newPass.toString() = password;
+    let password = newPass.join('');
 
 return password;
 };

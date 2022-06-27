@@ -1,8 +1,12 @@
 # Module 3 Refactor Challenge
 
 ## Deployed Link
+https://zserrano.github.io/password-generator/
+
 
 ## Screenshot of Deployed Website
+![03-javascript-homework-demo](https://user-images.githubusercontent.com/65681875/175863579-be3e4248-1d38-4e89-b8b9-6ef47d51c2d0.png)
+
 
 
 ## Description
@@ -19,5 +23,5 @@ Refactored the source code to generate a randomized password utilizing criteria 
 - Created a for loop to randomize password and set up lines of code afterwards to join the password array together into a string with no separators that can then be returned
 
 ## Contributors
-- Andrew E
-- Kurt B 
+- Andrew E: https://github.com/Andrew87E
+- Kurt B: https://github.com/kurtbixby

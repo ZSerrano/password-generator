@@ -15,6 +15,8 @@ let lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n
 let numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 let special = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '/', ':', ';', "'", '"', '<', '>', ',', '.', '?'];
 var passChar = [];
+var everyChar = [];
+var counter = 0;
 
 function generatePassword() {
     
@@ -42,34 +44,46 @@ function generatePassword() {
         // console.log("Yes uppercase");
         // console.log(passChar);
         passChar = passChar.concat(upper);
+        everyChar.push(upper[Math.floor(Math.random()*upper.length)]);
+        counter++
       }
   
       if (yesLower === true) {
         // console.log("Yes lowercase");
         // console.log(passChar);
         passChar = passChar.concat(lower);
+        everyChar.push(lower[Math.floor(Math.random()*lower.length)]);
+        counter++
       }
       if (yesNumbers === true) {
         // console.log("yes Numbers");
         passChar = passChar.concat(numbers);
+        everyChar.push(numbers[Math.floor(Math.random()*numbers.length)]);
+        counter++
       }
       if (yesSpecial === true) {
         // console.log("yes special");
         passChar = passChar.concat(special);
+        everyChar.push(special[Math.floor(Math.random()*special.length)]);
+        counter++
       }
       // console.log(passChar);
       return passChar;
     };
     // if any of the confirms are true, how
+   
     
     validatePass();
 
     var newPass = [];
 
-    for (var i = 0; i < pwdLength; i++) {
+    for (var i = 0; i < pwdLength - counter; i++) {
       newPass.push(passChar[Math.floor(Math.random()*passChar.length)]);
     };
-    let password = newPass.join('');
+    everyChar.push(newPass.join(''));
+
+    let password = everyChar.join('');
+    // console.log('Z');
 
 return password;
 };
